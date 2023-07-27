@@ -773,7 +773,8 @@ Shader "LCCGshader/Base"
 				float4 temp_output_387_0 = ( lit_diff349 * _ShadowColor );
 				float dotResult779 = dot( LightDir801 , ase_worldNormal );
 				float HalfLambertTerm781 = (dotResult779*0.5 + 0.5);
-				float HalfShadowAttenuation1070 = (saturate( ase_atten )*0.5 + 0.5);
+				float localIsThereALight1141 = ( any(_WorldSpaceLightPos0.xyz) );
+				float HalfShadowAttenuation1070 = ( localIsThereALight1141 == 1.0 ? (saturate( ase_atten )*0.5 + 0.5) : 1.0 );
 				float shad_lerp339 = saturate( ( ( _ShadowStep - (( _ReceiveShadowLerp )?( ( HalfLambertTerm781 * HalfShadowAttenuation1070 ) ):( HalfLambertTerm781 )) ) / _ShadowFeather ) );
 				float4 lerpResult405 = lerp( temp_output_366_0 , ( 0.5 >= _ToonDarkColor.a ? ( temp_output_387_0 * _ToonDarkColor ) : ( temp_output_387_0 + _ToonDarkColor ) ) , shad_lerp339);
 				float4 shaded_diff399 = (( _ShadowLerp )?( lerpResult405 ):( temp_output_366_0 ));
@@ -1158,7 +1159,8 @@ Shader "LCCGshader/Base"
 				float4 temp_output_387_0 = ( lit_diff349 * _ShadowColor );
 				float dotResult779 = dot( LightDir801 , ase_worldNormal );
 				float HalfLambertTerm781 = (dotResult779*0.5 + 0.5);
-				float HalfShadowAttenuation1070 = (saturate( ase_atten )*0.5 + 0.5);
+				float localIsThereALight1141 = ( any(_WorldSpaceLightPos0.xyz) );
+				float HalfShadowAttenuation1070 = ( localIsThereALight1141 == 1.0 ? (saturate( ase_atten )*0.5 + 0.5) : 1.0 );
 				float shad_lerp339 = saturate( ( ( _ShadowStep - (( _ReceiveShadowLerp )?( ( HalfLambertTerm781 * HalfShadowAttenuation1070 ) ):( HalfLambertTerm781 )) ) / _ShadowFeather ) );
 				float4 lerpResult405 = lerp( temp_output_366_0 , ( 0.5 >= _ToonDarkColor.a ? ( temp_output_387_0 * _ToonDarkColor ) : ( temp_output_387_0 + _ToonDarkColor ) ) , shad_lerp339);
 				float4 shaded_diff399 = (( _ShadowLerp )?( lerpResult405 ):( temp_output_366_0 ));
@@ -1521,7 +1523,8 @@ Shader "LCCGshader/Base"
 				float4 temp_output_387_0 = ( lit_diff349 * _ShadowColor );
 				float dotResult779 = dot( LightDir801 , ase_worldNormal );
 				float HalfLambertTerm781 = (dotResult779*0.5 + 0.5);
-				float HalfShadowAttenuation1070 = (saturate( ase_atten )*0.5 + 0.5);
+				float localIsThereALight1141 = ( any(_WorldSpaceLightPos0.xyz) );
+				float HalfShadowAttenuation1070 = ( localIsThereALight1141 == 1.0 ? (saturate( ase_atten )*0.5 + 0.5) : 1.0 );
 				float shad_lerp339 = saturate( ( ( _ShadowStep - (( _ReceiveShadowLerp )?( ( HalfLambertTerm781 * HalfShadowAttenuation1070 ) ):( HalfLambertTerm781 )) ) / _ShadowFeather ) );
 				float4 lerpResult405 = lerp( temp_output_366_0 , ( 0.5 >= _ToonDarkColor.a ? ( temp_output_387_0 * _ToonDarkColor ) : ( temp_output_387_0 + _ToonDarkColor ) ) , shad_lerp339);
 				float4 shaded_diff399 = (( _ShadowLerp )?( lerpResult405 ):( temp_output_366_0 ));
@@ -1579,7 +1582,7 @@ Shader "LCCGshader/Base"
 }
 /*ASEBEGIN
 Version=19105
-Node;AmplifyShaderEditor.CommentaryNode;1139;-5334.421,1485.287;Inherit;False;2803.978;981.2119;;48;1075;1074;1024;773;825;1138;1073;1028;1035;1033;1076;1029;1005;1096;1095;1097;208;826;780;779;800;799;550;551;552;803;801;778;776;802;797;798;1067;1068;1069;1066;1070;781;1025;303;301;875;876;304;1010;1125;1011;1126;Light;1,1,1,1;0;0
+Node;AmplifyShaderEditor.CommentaryNode;1139;-5334.421,1485.287;Inherit;False;2803.978;981.2119;;50;1075;1074;1024;773;825;1138;1073;1028;1035;1033;1076;1029;1005;1096;1095;1097;208;826;780;779;800;799;550;551;552;803;801;778;776;802;797;798;1067;1068;1069;1066;1070;781;1025;303;301;875;876;304;1010;1125;1011;1126;1140;1141;Light;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;1131;-2149.958,-2619.317;Inherit;False;1370.465;1226.018;;31;347;348;346;1009;1013;339;338;337;335;334;1039;1038;783;1072;349;336;365;364;375;387;369;368;366;405;1124;399;1130;1128;1129;392;1127;Shadow Process;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;1123;-2122.298,-1298.686;Inherit;False;1256.571;932.8995;;30;432;433;428;430;624;429;319;322;636;434;623;315;435;438;539;437;873;872;1122;442;1121;1017;1016;444;1015;439;440;445;441;443;Specular Process;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;1117;-607.4543,2110.428;Inherit;False;1426.515;1601.894;;33;727;735;737;738;739;740;742;734;729;733;914;913;730;732;1111;1113;1115;1108;743;745;746;744;1106;747;748;749;750;751;1105;1104;1110;1114;1112;Outline;1,1,1,1;0;0
@@ -1931,7 +1934,6 @@ Node;AmplifyShaderEditor.RegisterLocalVarNode;208;-2754.443,1748.305;Inherit;Fal
 Node;AmplifyShaderEditor.RangedFloatNode;826;-3695.88,1735.818;Inherit;False;Property;_MaxDirectLight;MaxDirectLight;59;0;Create;True;0;0;0;False;0;False;1;0;0;2;0;1;FLOAT;0
 Node;AmplifyShaderEditor.WorldNormalVector;780;-5271.744,2103.798;Inherit;False;False;1;0;FLOAT3;0,0,0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.DotProductOpNode;779;-5046.706,2053.837;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.Compare;800;-4899.083,1541.946;Inherit;False;0;4;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.WorldSpaceLightDirHlpNode;799;-5280.399,1591.839;Inherit;False;False;1;0;FLOAT;0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.WorldNormalVector;550;-5228.714,1846.949;Inherit;False;False;1;0;FLOAT3;0,0,1;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.DotProductOpNode;551;-4992.512,1812.687;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0
@@ -1941,13 +1943,11 @@ Node;AmplifyShaderEditor.RegisterLocalVarNode;801;-4731.048,1541.287;Inherit;Fal
 Node;AmplifyShaderEditor.RangedFloatNode;778;-5086.964,2169.285;Float;False;Constant;_RemapValue1;Remap Value;0;0;Create;True;0;0;0;False;0;False;0.5;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ScaleAndOffsetNode;776;-4919.377,2078.054;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.GetLocalVarNode;802;-5256.244,2011.374;Inherit;False;801;LightDir;1;0;OBJECT;;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.CustomExpressionNode;797;-5059.011,1535.287;Inherit;False;any(_WorldSpaceLightPos0.xyz);1;Create;0;Is There A Light;False;False;0;;False;0;1;FLOAT;0
 Node;AmplifyShaderEditor.CustomExpressionNode;798;-5055.206,1660.904;Inherit;False;normalize(UNITY_MATRIX_V[2].xyz + UNITY_MATRIX_V[1].xyz);3;Create;0;Default LightDir;False;False;0;;False;0;1;FLOAT3;0
 Node;AmplifyShaderEditor.SaturateNode;1067;-5090.479,2271.214;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ScaleAndOffsetNode;1068;-4953.782,2302.268;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;1069;-5110.37,2350.499;Float;False;Constant;_RemapValue3;Remap Value;0;0;Create;True;0;0;0;False;0;False;0.5;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.LightAttenuation;1066;-5284.421,2266.297;Inherit;False;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RegisterLocalVarNode;1070;-4769.406,2297.443;Inherit;False;HalfShadowAttenuation;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;781;-4717.65,2077.755;Inherit;False;HalfLambertTerm;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ClampOpNode;1025;-3480.9,2069.539;Inherit;False;3;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;1,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RangedFloatNode;1010;-3079.098,2100.333;Inherit;False;Property;_DiffuseLightFactor;DiffuseLightFactor;64;0;Create;True;0;0;0;False;0;False;0;1;0;1;0;1;FLOAT;0
@@ -1959,6 +1959,11 @@ Node;AmplifyShaderEditor.RangedFloatNode;301;-3795.151,2242.057;Inherit;False;Pr
 Node;AmplifyShaderEditor.ToggleSwitchNode;875;-3790.149,2051.663;Inherit;False;Property;_UnifyIndirectDiffuseLight;Unify IndirectDiffuseLight;60;0;Create;True;0;0;0;False;0;False;1;True;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.CustomExpressionNode;876;-3955.661,2105.563;Inherit;False;max(ShadeSH9(half4(0, 0, 0, 1)).rgb, ShadeSH9(half4(0, -1, 0, 1)).rgb);3;Create;0;MaxShadeSH9;False;False;0;;False;0;1;FLOAT3;0
 Node;AmplifyShaderEditor.IndirectDiffuseLighting;304;-4011.619,2025.179;Inherit;False;Tangent;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.Compare;800;-4899.083,1541.946;Inherit;False;0;4;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.CustomExpressionNode;797;-5059.011,1535.287;Inherit;False;any(_WorldSpaceLightPos0.xyz);1;Create;0;Is There A Light;False;False;0;;False;0;1;FLOAT;0
+Node;AmplifyShaderEditor.CustomExpressionNode;1141;-4904.374,2226.346;Inherit;False;any(_WorldSpaceLightPos0.xyz);1;Create;0;Is There A Light;False;False;0;;False;0;1;FLOAT;0
+Node;AmplifyShaderEditor.Compare;1140;-4744.445,2233.005;Inherit;False;0;4;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT;0;False;3;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RegisterLocalVarNode;1070;-4577.406,2232.443;Inherit;False;HalfShadowAttenuation;-1;True;1;0;FLOAT;0;False;1;FLOAT;0
 WireConnection;580;0;621;0
 WireConnection;580;1;579;0
 WireConnection;582;0;580;0
@@ -2292,9 +2297,6 @@ WireConnection;1095;0;1005;0
 WireConnection;208;0;1096;0
 WireConnection;779;0;802;0
 WireConnection;779;1;780;0
-WireConnection;800;0;797;0
-WireConnection;800;2;799;0
-WireConnection;800;3;798;0
 WireConnection;551;0;803;0
 WireConnection;551;1;550;0
 WireConnection;552;0;551;0
@@ -2306,7 +2308,6 @@ WireConnection;1067;0;1066;0
 WireConnection;1068;0;1067;0
 WireConnection;1068;1;1069;0
 WireConnection;1068;2;1069;0
-WireConnection;1070;0;1068;0
 WireConnection;781;0;776;0
 WireConnection;1025;0;875;0
 WireConnection;1025;1;303;0
@@ -2315,5 +2316,11 @@ WireConnection;1011;0;1010;0
 WireConnection;1126;0;1125;0
 WireConnection;875;0;304;0
 WireConnection;875;1;876;0
+WireConnection;800;0;797;0
+WireConnection;800;2;799;0
+WireConnection;800;3;798;0
+WireConnection;1140;0;1141;0
+WireConnection;1140;2;1068;0
+WireConnection;1070;0;1140;0
 ASEEND*/
-//CHKSM=3BDE7D1E88DB65517D467B278C790A63687312E5
+//CHKSM=66594D1F712EE8216B6A39E87E23206572D90CBA
