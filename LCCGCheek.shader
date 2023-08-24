@@ -1,4 +1,4 @@
-// Made with Amplify Shader Editor v1.9.1.5
+// Made with Amplify Shader Editor v1.9.1.7
 // Available at the Unity Asset Store - http://u3d.as/y3X 
 Shader "LCCGshader/Cheek"
 {
@@ -46,7 +46,7 @@ Shader "LCCGshader/Cheek"
 	
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="AlphaTest" }
+		Tags { "RenderType"="Transparent" "Queue"="Transparent" }
 	LOD 100
 
 		Cull Off
@@ -677,7 +677,7 @@ Shader "LCCGshader/Cheek"
 	Fallback Off
 }
 /*ASEBEGIN
-Version=19105
+Version=19107
 Node;AmplifyShaderEditor.CommentaryNode;1178;-2976.842,373.3504;Inherit;False;1905.078;761.4236;;27;941;993;991;992;1134;1135;1136;1138;1140;1141;1142;1139;1137;1156;1144;1072;1146;1177;1145;954;1149;1147;1150;1157;1158;1148;1183;Main Blend;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;1176;-3852.502,414.6555;Inherit;False;584.5752;685.3966;;6;345;620;979;401;64;963;Texture Input;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;1175;-978.7212,864.5873;Inherit;False;1183.341;466.6177;;12;890;1162;1164;1165;1166;1167;1168;1169;1172;1173;957;1163;Alpha Blend;1,1,1,1;0;0
@@ -746,7 +746,7 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;1172;-634.6087,998.9084;Inherit;Fa
 Node;AmplifyShaderEditor.GetLocalVarNode;1173;-823.748,997.6415;Inherit;False;963;Alpha;1;0;OBJECT;;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;957;-928.7212,1092.805;Inherit;False;Property;_CheekStrength;CheekStrength;1;0;Create;True;0;0;0;False;0;False;10;1;0;100;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ScreenColorNode;1163;-615.6195,1119.205;Inherit;False;Global;_GrabScreen0;Grab Screen 0;68;0;Create;True;0;0;0;False;0;False;Object;-1;False;False;False;False;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;888;255.2894,972.2784;Float;False;True;-1;2;ASEMaterialInspector;100;12;LCCGshader/Cheek;fe4af87006695164d84819765fe282b7;True;ForwardBase;0;1;ForwardBase;3;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;RenderType=Transparent=RenderType;Queue=AlphaTest=Queue=0;True;2;False;0;True;True;0;5;False;;10;False;;0;5;False;;10;False;;True;5;False;;5;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;0;True;_CullMode;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;0;True;_StencilReference;255;True;_StencilReadMask;255;True;_StencilWriteMask;0;True;_StencilComparison;0;True;_StencilPassFront;0;True;_StencilFailFront;0;True;_StencilZFailFront;0;False;;0;False;;0;False;;0;False;;True;True;2;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=ForwardBase;True;2;False;0;;0;0;Standard;0;0;5;False;True;True;False;False;False;;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;888;255.2894,972.2784;Float;False;True;-1;2;ASEMaterialInspector;100;12;LCCGshader/Cheek;fe4af87006695164d84819765fe282b7;True;ForwardBase;0;1;ForwardBase;3;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;RenderType=Transparent=RenderType;Queue=Transparent=Queue=0;True;2;False;0;True;True;0;5;False;;10;False;;0;5;False;;10;False;;True;5;False;;5;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;0;True;_CullMode;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;0;True;_StencilReference;255;True;_StencilReadMask;255;True;_StencilWriteMask;0;True;_StencilComparison;0;True;_StencilPassFront;0;True;_StencilFailFront;0;True;_StencilZFailFront;0;False;;0;False;;0;False;;0;False;;True;True;2;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=ForwardBase;True;2;False;0;;0;0;Standard;0;0;5;False;True;True;False;False;False;;False;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;345;-3506.338,669.6292;Inherit;False;color;-1;True;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;620;-3491.926,869.3972;Inherit;False;dirt;-1;True;1;0;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SamplerNode;979;-3800.995,667.4216;Inherit;True;Property;_MainTex;Color Map (_cheek_C);3;0;Create;False;1;Diffuse;0;0;False;0;False;-1;None;None;True;0;False;red;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -927,4 +927,4 @@ WireConnection;1185;0;1186;0
 WireConnection;1185;2;1125;0
 WireConnection;1128;0;1185;0
 ASEEND*/
-//CHKSM=AE109C1A9A00F866B3B083656B942EA20E9FB777
+//CHKSM=13C6F8C95BA9A2C3816D406153D6A2932FA920D1
